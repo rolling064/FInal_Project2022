@@ -53,11 +53,11 @@ https://www.wongwonggoods.com/python/python_chatbot/linebot-local-server-ngork/
 除錯便會維持相同狀態持續跳出選項通知(如下圖)<br>
 ![](https://i.imgur.com/xNb8MyY.png)<br>
 
-**step bonus**
+**step bonus**<br>
 在user階段 有設置無提示的路徑，若輸入開啟資料夾，便會進入密碼驗證階段<br>
 ![](https://i.imgur.com/BVcyhIZ.png)<br>
 
-**密碼驗證階段**
+**密碼驗證階段**<br>
 1.驗證失敗則會維持住狀態(如下圖)<br>
 **備註**:此階段的開始和除錯不同訊息因此不能transition到自己<br>
 ![](https://i.imgur.com/SkwwYoL.png)<br>
@@ -66,8 +66,7 @@ https://www.wongwonggoods.com/python/python_chatbot/linebot-local-server-ngork/
 
 ## 程式執行先前設置
 ### 設置伺服器
-在V.S. Code的終端機開啟CMD<br>
-輸入 ```ngrok http 5000```便會得到<br>
+在V.S. Code的終端機開啟CMD輸入 ```ngrok http 5000```便會得到<br>
 ![](https://i.imgur.com/XohfsMR.png)<br>
 將```(forwarding 後面的)and(->之前)```的網址複製到<br>
 https://developers.line.biz/console/<br>
