@@ -77,9 +77,11 @@ https://www.wongwonggoods.com/python/python_chatbot/linebot-local-server-ngork/
 在V.S. Code的終端機開啟CMD
 輸入 ```ngrok http 5000```便會得到
 ![](https://i.imgur.com/XohfsMR.png)
+
 將```(forwarding 後面的)and(->之前)```的網址複製到
 https://developers.line.biz/console/
 ![](https://i.imgur.com/UXf3ljH.png)
+
 **複製過的網址後面要加上/callback**
 
 ### 虛擬環境執行程式
