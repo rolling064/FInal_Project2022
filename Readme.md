@@ -1,20 +1,20 @@
 # Readme
-## 目標:做出資料夾分類
-**用回復選項的方式做資料夾，分類出各種網站，方便找尋**
+## 目標:做出資料夾分類<br>
+**用回復選項的方式做資料夾，分類出各種網站，方便找尋**<br>
 
 
-## 環境架設
-使用以下指令裝設虛擬環境
-```pip3 install pipenv```
+## 環境架設<br>
+使用以下指令裝設虛擬環境<br>
+```pip3 install pipenv```<br>
 
-```pipenv --three```
+```pipenv --three```<br>
 
-```pipenv install flask```
+```pipenv install flask```<br>
 
-```pipenv install line-bot-sdk```
+```pipenv install line-bot-sdk```<br>
 
 
-## Ngrok
+## Ngrok<br>
 **下載ngrok**
 網址: https://ngrok.com/
 
@@ -34,59 +34,48 @@ https://www.wongwonggoods.com/python/python_chatbot/linebot-local-server-ngork/
 ![](https://i.imgur.com/aLrNHuW.png)
 
 **step1**
-輸入**start**便會得到
-
+輸入**start**便會得到<br>
 ![](https://i.imgur.com/EipkEMF.png)
 
 **step2**
-1.選擇你所要的資料夾以下用**ncku資料夾**做範例(如下圖)
-
-![](https://i.imgur.com/eqhrQtE.png)
-2.按下上一層則會跳回**step1**
+1.選擇你所要的資料夾以下用**ncku資料夾**做範例(如下圖)<br>
+![](https://i.imgur.com/eqhrQtE.png)<br>
+2.按下上一層則會跳回**step1**<br>
 
 **step3**
-1.點擊選項便會跳出網址且狀態會跳回user(如下圖)
-
-![](https://i.imgur.com/9m9FthV.png)
-2.按下上一層則會跳回**step2**
+1.點擊選項便會跳出網址且狀態會跳回user(如下圖)<br>
+![](https://i.imgur.com/9m9FthV.png)<br>
+2.按下上一層則會跳回**step2**<br>
 
 **備註**
-若在中途未收到正確指令，使用
-```transition中的{'trigger': 'advance', 'source': 'state_A', 'dest':'state_A'}```
-除錯便會維持相同狀態持續跳出選項通知(如下圖)
-
-![](https://i.imgur.com/xNb8MyY.png)
+若在中途未收到正確指令，使用<br>
+```transition中的{'trigger': 'advance', 'source': 'state_A', 'dest':'state_A'}```<br>
+除錯便會維持相同狀態持續跳出選項通知(如下圖)<br>
+![](https://i.imgur.com/xNb8MyY.png)<br>
 
 **step bonus**
-在user階段 有設置無提示的路徑，若輸入開啟資料夾，便會進入密碼驗證階段
-
-![](https://i.imgur.com/BVcyhIZ.png)
+在user階段 有設置無提示的路徑，若輸入開啟資料夾，便會進入密碼驗證階段<br>
+![](https://i.imgur.com/BVcyhIZ.png)<br>
 
 **密碼驗證階段**
-1.驗證失敗則會維持住狀態(如下圖)
-
-**備註**:此階段的開始和除錯不同訊息因此不能transition到自己
-
-![](https://i.imgur.com/SkwwYoL.png)
-
-2.驗證成功則會進入最後階段(如下圖)
-
-![](https://i.imgur.com/ekxZ6HK.png)
+1.驗證失敗則會維持住狀態(如下圖)<br>
+**備註**:此階段的開始和除錯不同訊息因此不能transition到自己<br>
+![](https://i.imgur.com/SkwwYoL.png)<br>
+2.驗證成功則會進入最後階段(如下圖)<br>
+![](https://i.imgur.com/ekxZ6HK.png)<br>
 
 ## 程式執行先前設置
 ### 設置伺服器
-在V.S. Code的終端機開啟CMD
-輸入 ```ngrok http 5000```便會得到
-![](https://i.imgur.com/XohfsMR.png)
-
-將```(forwarding 後面的)and(->之前)```的網址複製到
-https://developers.line.biz/console/
-![](https://i.imgur.com/UXf3ljH.png)
-
-**複製過的網址後面要加上/callback**
+在V.S. Code的終端機開啟CMD<br>
+輸入 ```ngrok http 5000```便會得到<br>
+![](https://i.imgur.com/XohfsMR.png)<br>
+將```(forwarding 後面的)and(->之前)```的網址複製到<br>
+https://developers.line.biz/console/<br>
+![](https://i.imgur.com/UXf3ljH.png)<br>
+**複製過的網址後面要加上/callback**<br>
 
 ### 虛擬環境執行程式
-在**終端機powershell**中使用```pipenv shell```進入虛擬環境
+在**終端機powershell**中使用```pipenv shell```進入虛擬環境<br>
 於**終端機pipenv**環境中執行 ```python app.py```
 
 ### 兩者都完成後便可以到line中與機器人對話
