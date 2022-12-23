@@ -30,19 +30,23 @@ https://www.wongwonggoods.com/python/python_chatbot/linebot-local-server-ngork/
 ## 使用方式
 **step0**
 任意輸入後，系統便會提示
+
 ![](https://i.imgur.com/aLrNHuW.png)
 
 **step1**
 輸入**start**便會得到
+
 ![](https://i.imgur.com/EipkEMF.png)
 
 **step2**
 1.選擇你所要的資料夾以下用**ncku資料夾**做範例(如下圖)
+
 ![](https://i.imgur.com/eqhrQtE.png)
 2.按下上一層則會跳回**step1**
 
 **step3**
 1.點擊選項便會跳出網址且狀態會跳回user(如下圖)
+
 ![](https://i.imgur.com/9m9FthV.png)
 2.按下上一層則會跳回**step2**
 
@@ -54,12 +58,18 @@ https://www.wongwonggoods.com/python/python_chatbot/linebot-local-server-ngork/
 
 **step bonus**
 在user階段 有設置無提示的路徑，若輸入開啟資料夾，
+
 ![](https://i.imgur.com/BVcyhIZ.png)
 便會進入密碼驗證階段
+
+**密碼驗證階段**
 1.驗證失敗則會維持住狀態(如下圖)
 **備註**:此階段的開始和除錯不同訊息因此不能transition到自己
+
 ![](https://i.imgur.com/SkwwYoL.png)
+
 2.驗證成功則會進入最後階段(如下圖)
+
 ![](https://i.imgur.com/ekxZ6HK.png)
 
 ## 程式執行先前設置
