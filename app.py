@@ -105,7 +105,8 @@ def webhook_handler():
                 send_text_message(event.reply_token, '密碼錯誤，請重新嘗試')
             #若要使用fsm記得要改網址
             elif event.message.text.lower() == 'fsm':
-                machine.get_graph().draw('fsm.png', prog='dot')
+                #回傳到主機可選擇是否開啟
+                #machine.get_graph().draw('fsm.png', prog='dot')
                 send_image_message(event.reply_token, 'https://8603-218-164-75-168.jp.ngrok.io/show-fsm')
             elif machine.state =='user':
                 send_text_message(event.reply_token, '目前只提供資料夾的功能\n輸入"start"便可開啟資料夾')
