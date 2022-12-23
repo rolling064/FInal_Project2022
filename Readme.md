@@ -51,16 +51,17 @@ https://www.wongwonggoods.com/python/python_chatbot/linebot-local-server-ngork/
 2.按下上一層則會跳回**step2**
 
 **備註**
-若在中途未收到正確指令，
-使用```transition中的{'trigger': 'advance', 'source': 'state_A', 'dest':'state_A'}```除錯便會維持相同狀態持續跳出選項通知(如下圖)
+若在中途未收到正確指令，使用
+```transition中的{'trigger': 'advance', 'source': 'state_A', 'dest':'state_A'}```
+除錯便會維持相同狀態持續跳出選項通知(如下圖)
 
 ![](https://i.imgur.com/xNb8MyY.png)
 
 **step bonus**
-在user階段 有設置無提示的路徑，若輸入開啟資料夾，
+在user階段 有設置無提示的路徑，若輸入開啟資料夾，便會進入密碼驗證階段
+
 
 ![](https://i.imgur.com/BVcyhIZ.png)
-便會進入密碼驗證階段
 
 **密碼驗證階段**
 1.驗證失敗則會維持住狀態(如下圖)
