@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "*"
+line-bot-sdk = "*"
+flask = "*"
+transitions = "*"
+python-dotenv = "*"
+pandas = "*"
+pygraphviz = {path = "./pygraphviz-1.9-cp39-cp39-win_amd64.whl"}
+graphviz = "*"
+
+[dev-packages]
+pytest = "*"
+
+[requires]
+python_version = "3.9"
+python_full_version = "3.9.7"
