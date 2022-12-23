@@ -28,21 +28,21 @@ https://www.wongwonggoods.com/python/python_chatbot/linebot-local-server-ngork/
 
 
 ## 使用方式
-**step0**
+**step0**<br>
 任意輸入後，系統便會提示
 
 ![](https://i.imgur.com/aLrNHuW.png)
 
-**step1**
+**step1**<br>
 輸入**start**便會得到<br>
 ![](https://i.imgur.com/EipkEMF.png)
 
-**step2**
+**step2**<br>
 1.選擇你所要的資料夾以下用**ncku資料夾**做範例(如下圖)<br>
 ![](https://i.imgur.com/eqhrQtE.png)<br>
 2.按下上一層則會跳回**step1**<br>
 
-**step3**
+**step3**<br>
 1.點擊選項便會跳出網址且狀態會跳回user(如下圖)<br>
 ![](https://i.imgur.com/9m9FthV.png)<br>
 2.按下上一層則會跳回**step2**<br>
@@ -51,10 +51,10 @@ https://www.wongwonggoods.com/python/python_chatbot/linebot-local-server-ngork/
 若在中途未收到正確指令，便會跳出<br>
 ![](https://i.imgur.com/LSiMFeg.png)<br>
 ### 在此種狀況，加入了兩種除錯功能<br>
-1.輸入"menu"後執行code後便會跳出選單，此除錯功能在各資料夾階段都有加入<br>
+1.輸入"menu"後執行code後便會跳出選單，此除錯功能在各**資料夾階段**都有加入<br>
 ```{'trigger': 'advance', 'source': 'state_A', 'dest':'state_A','conditions':'is_going_to_menu'},```<br>
 ![](https://i.imgur.com/qc9M3YO.png)<br>
-2.輸入"結束"便會將state轉移到end<br>
+2.輸入"結束"便會將state轉移到end，此除錯功能在**任意階段**都有加入<br>
 ![](https://i.imgur.com/yxJWXQS.png)<br>
 
 ### fsm
