@@ -1,6 +1,7 @@
 import os
 import sys
 
+import pygraphviz as pgv
 from flask import Flask, request, abort, send_file
 from dotenv import load_dotenv
 from linebot import LineBotApi, WebhookParser
@@ -26,7 +27,7 @@ machine = TocMachine(
                  {'trigger': 'advance', 'source': 'entertainment_folder', 'dest':'1st_level_folder', 'conditions':'back_to_1st_level_folder'},
                  {'trigger': 'advance', 'source': '1st_level_folder', 'dest':'google_folder', 'conditions':'is_going_to_google_folder'},
                  {'trigger': 'advance', 'source': 'google_folder', 'dest':'1st_level_folder', 'conditions':'back_to_1st_level_folder'},
-                 {'trigger': 'advance', 'source': '1st_level_folder', 'dest':'end', 'conditions':'is_going_to_end'},
+                 {'trigger': 'advance', 'source': ['1st_level_folder','password','secret','ncku_folder','math','csie','nckuedu','entertainment_folder','facebook','youtube','twich','google_folder','translation','drive','gmail'], 'dest':'end', 'conditions':'is_going_to_end'},
 
                  {'trigger': 'advance', 'source': 'ncku_folder', 'dest':'math', 'conditions':'is_going_to_math'},
                  {'trigger': 'advance', 'source': 'math', 'dest':'ncku_folder', 'conditions':'back_to_ncku_folder'},
@@ -51,10 +52,10 @@ machine = TocMachine(
 
                  {'trigger': 'go_back', 'source': ['math','csie','nckuedu','facebook','youtube','twich','translation','drive','gmail','end','secret',], 'dest':'user',},
                 
-                 {'trigger': 'advance', 'source': '1st_level_folder', 'dest':'1st_level_folder'},
-                 {'trigger': 'advance', 'source': 'ncku_folder', 'dest':'ncku_folder'},
-                 {'trigger': 'advance', 'source': 'entertainment_folder', 'dest':'entertainment_folder'},
-                 {'trigger': 'advance', 'source': 'google_folder', 'dest':'google_folder'},
+                 {'trigger': 'advance', 'source': '1st_level_folder', 'dest':'1st_level_folder','conditions':'is_going_to_menu'},
+                 {'trigger': 'advance', 'source': 'ncku_folder', 'dest':'ncku_folder','conditions':'is_going_to_menu'},
+                 {'trigger': 'advance', 'source': 'entertainment_folder', 'dest':'entertainment_folder','conditions':'is_going_to_menu'},
+                 {'trigger': 'advance', 'source': 'google_folder', 'dest':'google_folder','conditions':'is_going_to_menu'},
                 ],
     initial="user",
     auto_transitions=False,
@@ -81,12 +82,12 @@ def webhook_handler():
     # get request body as text
     body = request.get_data(as_text=True)
     app.logger.info(f"Request body: {body}")
- 
+
     try:
         events = parser.parse(body, signature)
     except InvalidSignatureError:
         abort(400)
- 
+
     for event in events:
         if not isinstance(event, MessageEvent):
             continue
@@ -96,12 +97,20 @@ def webhook_handler():
             continue
         print(f"\nFSM STATE: {machine.state}")
         print(f"REQUEST BODY: \n{body}")
+        
+
         response = machine.advance(event)
-        if response == False:
+        if response == False : 
             if machine.state == 'password':
                 send_text_message(event.reply_token, '密碼錯誤，請重新嘗試')
-            else:
+            #若要使用fsm記得要改網址
+            elif event.message.text.lower() == 'fsm':
+                machine.get_graph().draw('fsm.png', prog='dot')
+                send_image_message(event.reply_token, 'https://8603-218-164-75-168.jp.ngrok.io/show-fsm')
+            elif machine.state =='user':
                 send_text_message(event.reply_token, '目前只提供資料夾的功能\n輸入"start"便可開啟資料夾')
+            else :
+                send_text_message(event.reply_token, '請輸入"menu"來呼叫選單並根據選單按下按鈕\n或輸入結束回到最開始')
 
     return "OK"
 

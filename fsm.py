@@ -49,7 +49,6 @@ class TocMachine(GraphMachine):
         ]
         send_button_message(event.reply_token, title, text, btn)
 
-
     #結束
     def is_going_to_end(self, event):
         text = event.message.text
@@ -228,3 +227,8 @@ class TocMachine(GraphMachine):
     def back_to_entertainment_folder(self,event):
         text = event.message.text
         return text.lower() == '返回娛樂資料夾'
+
+    #再次呼叫選單
+    def is_going_to_menu(self, event):
+        text = event.message.text
+        return text.lower() == 'menu'
