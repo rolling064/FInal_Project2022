@@ -24,7 +24,7 @@ https://www.wongwonggoods.com/python/python_chatbot/linebot-local-server-ngork/
 
 ## 我的程式架構
 **資料夾分類**
-![](https://i.imgur.com/JEufvdq.png)
+![](https://i.imgur.com/sN8nt5X.png)
 
 
 ## 使用方式
@@ -47,11 +47,20 @@ https://www.wongwonggoods.com/python/python_chatbot/linebot-local-server-ngork/
 ![](https://i.imgur.com/9m9FthV.png)<br>
 2.按下上一層則會跳回**step2**<br>
 
-**備註**
-若在中途未收到正確指令，使用<br>
-```transition中的{'trigger': 'advance', 'source': 'state_A', 'dest':'state_A'}```<br>
-除錯便會維持相同狀態持續跳出選項通知(如下圖)<br>
-![](https://i.imgur.com/xNb8MyY.png)<br>
+## 備註
+若在中途未收到正確指令，便會跳出<br>
+![](https://i.imgur.com/LSiMFeg.png)<br>
+### 在此種狀況，加入了兩種除錯功能<br>
+1.輸入"menu"後執行code後便會跳出選單，此除錯功能在各資料夾階段都有加入<br>
+```{'trigger': 'advance', 'source': 'state_A', 'dest':'state_A','conditions':'is_going_to_menu'},```<br>
+![](https://i.imgur.com/qc9M3YO.png)<br>
+2.輸入"結束"便會將state轉移到end<br>
+![](https://i.imgur.com/yxJWXQS.png)<br>
+
+### fsm
+在各個階段輸入"fsm"，便會得到狀態圖(範例為在娛樂資料夾輸入fsm)
+![](https://i.imgur.com/h8Ti0KN.png)
+
 
 **step bonus**<br>
 在user階段 有設置無提示的路徑，若輸入開啟資料夾，便會進入密碼驗證階段<br>
@@ -59,7 +68,6 @@ https://www.wongwonggoods.com/python/python_chatbot/linebot-local-server-ngork/
 
 **密碼驗證階段**<br>
 1.驗證失敗則會維持住狀態(如下圖)<br>
-**備註**:此階段的開始和除錯不同訊息因此不能transition到自己<br>
 ![](https://i.imgur.com/SkwwYoL.png)<br>
 2.驗證成功則會進入最後階段(如下圖)<br>
 ![](https://i.imgur.com/ekxZ6HK.png)<br>
