@@ -24,7 +24,7 @@ https://www.wongwonggoods.com/python/python_chatbot/linebot-local-server-ngork/
 
 ## 我的程式架構
 **資料夾分類**
-![](https://i.imgur.com/sN8nt5X.png)
+![](https://i.imgur.com/E4bmlkB.png)
 
 
 ## 使用方式
