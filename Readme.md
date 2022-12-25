@@ -54,7 +54,7 @@ https://www.wongwonggoods.com/python/python_chatbot/linebot-local-server-ngork/
 1.輸入"menu"後執行code後便會跳出選單，此除錯功能在各**資料夾階段**都有加入<br>
 ```{'trigger': 'advance', 'source': 'state_A', 'dest':'state_A','conditions':'is_going_to_menu'},```<br>
 ![](https://i.imgur.com/qc9M3YO.png)<br>
-2.輸入"結束"便會將state轉移到end，此除錯功能在**任意階段**都有加入<br>
+2.輸入"結束"便會將state轉移到user，此除錯功能在**任意階段**都有加入<br>
 ![](https://i.imgur.com/yxJWXQS.png)<br>
 
 ### fsm
