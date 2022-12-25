@@ -14,7 +14,7 @@ from fsm import TocMachine
 load_dotenv()
 
 machine = TocMachine(
-    states=['user','1st_level_folder','password','secret','ncku_folder','math','csie','nckuedu','entertainment_folder','facebook','youtube','twich','google_folder','translation','drive','gmail','end'],
+    states=['user','1st_level_folder','password','secret','ncku_folder','math','csie','nckuedu','entertainment_folder','facebook','youtube','twich','google_folder','translation','drive','gmail'],
     transitions=[{'trigger': 'advance', 'source': 'user', 'dest':'1st_level_folder', 'conditions':'is_going_to_1st_level_folder'},
                  {'trigger': 'advance', 'source': 'user', 'dest':'password', 'conditions':'is_going_to_password'},
                  {'trigger': 'advance', 'source': 'password', 'dest':'secret', 'conditions':'is_going_to_secret'},
@@ -27,7 +27,7 @@ machine = TocMachine(
                  {'trigger': 'advance', 'source': 'entertainment_folder', 'dest':'1st_level_folder', 'conditions':'back_to_1st_level_folder'},
                  {'trigger': 'advance', 'source': '1st_level_folder', 'dest':'google_folder', 'conditions':'is_going_to_google_folder'},
                  {'trigger': 'advance', 'source': 'google_folder', 'dest':'1st_level_folder', 'conditions':'back_to_1st_level_folder'},
-                 {'trigger': 'advance', 'source': ['1st_level_folder','password','secret','ncku_folder','math','csie','nckuedu','entertainment_folder','facebook','youtube','twich','google_folder','translation','drive','gmail'], 'dest':'end', 'conditions':'is_going_to_end'},
+                 {'trigger': 'advance', 'source': ['1st_level_folder','password','secret','ncku_folder','math','csie','nckuedu','entertainment_folder','facebook','youtube','twich','google_folder','translation','drive','gmail'], 'dest':'user', 'conditions':'is_going_to_user'},
 
                  {'trigger': 'advance', 'source': 'ncku_folder', 'dest':'math', 'conditions':'is_going_to_math'},
                  {'trigger': 'advance', 'source': 'math', 'dest':'ncku_folder', 'conditions':'back_to_ncku_folder'},
@@ -50,7 +50,7 @@ machine = TocMachine(
                  {'trigger': 'advance', 'source': 'google_folder', 'dest':'gmail', 'conditions':'is_going_to_gmail'},
                  {'trigger': 'advance', 'source': 'gmail', 'dest':'google_folder', 'conditions':'back_to_google_folder'},
 
-                 {'trigger': 'go_back', 'source': ['math','csie','nckuedu','facebook','youtube','twich','translation','drive','gmail','end','secret',], 'dest':'user',},
+                 {'trigger': 'go_back', 'source': ['math','csie','nckuedu','facebook','youtube','twich','translation','drive','gmail','secret',], 'dest':'user',},
                 
                  {'trigger': 'advance', 'source': '1st_level_folder', 'dest':'1st_level_folder','conditions':'is_going_to_menu'},
                  {'trigger': 'advance', 'source': 'ncku_folder', 'dest':'ncku_folder','conditions':'is_going_to_menu'},
@@ -107,7 +107,7 @@ def webhook_handler():
             elif event.message.text.lower() == 'fsm':
                 #回傳到主機可選擇是否開啟
                 #machine.get_graph().draw('fsm.png', prog='dot')
-                send_image_message(event.reply_token, 'https://8603-218-164-75-168.jp.ngrok.io/show-fsm')
+                send_image_message(event.reply_token, 'https://d45a-27-53-122-68.jp.ngrok.io/show-fsm')
             elif machine.state =='user':
                 send_text_message(event.reply_token, '目前只提供資料夾的功能\n輸入"start"便可開啟資料夾')
             else :

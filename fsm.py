@@ -50,10 +50,10 @@ class TocMachine(GraphMachine):
         send_button_message(event.reply_token, title, text, btn)
 
     #結束
-    def is_going_to_end(self, event):
+    def is_going_to_user(self, event):
         text = event.message.text
         return text.lower() == '結束'
-    def on_enter_end(self, event):
+    def on_enter_user(self, event):
         send_text_message(event.reply_token, "謝謝您的使用，歡迎你下次的使用")
         self.go_back()
 
