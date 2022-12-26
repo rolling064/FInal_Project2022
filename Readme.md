@@ -2,6 +2,8 @@
 ## 目標:做出資料夾分類<br>
 **用回復選項的方式做資料夾，分類出各種網站，方便找尋**<br>
 
+## QR code
+![image](https://user-images.githubusercontent.com/121214893/209562229-6c570db7-5e46-40d5-a3aa-69584e1d9c34.png)<br>
 
 ## 環境架設<br>
 使用以下指令裝設虛擬環境<br>
